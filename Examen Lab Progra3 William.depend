@@ -47,3 +47,19 @@
 1383674665 source:/home/william/Documents/Code Blocks Projects/Examen Lab Progra3 William/Personaje.cpp
 	"Personaje.h"
 
+1383784099 source:/home/william/Documents/Code Blocks Projects/Examen Lab Progra3 William/main.cpp
+	"SDL/SDL.h"
+	"SDL/SDL_image.h"
+	"SDL/SDL_ttf.h"
+	<string>
+	<iostream>
+	"Personaje.h"
+	<vector>
+	"Enemigo.h"
+	"Fantasmita.h"
+	"Bomba.h"
+	"Cocodrilo.h"
+	"LLama.h"
+	"SDL/SDL_mixer.h"
+	"SDL/SDL_mixer.h"
+

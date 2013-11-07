@@ -24,6 +24,7 @@ const int SCREEN_BPP = 32;
 //The surfaces
 Mix_Music *music ;
 SDL_Surface *background = NULL;
+SDL_Surface *enter = NULL;
 //SDL_Surface *up = NULL;
 //SDL_Surface *down = NULL;
 //SDL_Surface *left = NULL;
@@ -155,6 +156,7 @@ int main( int argc, char* args[] )
 
     SDL_Surface*meta =IMG_Load("meta1.png");
     SDL_Surface*gameOver =IMG_Load("game over.png");
+    SDL_Surface*menu =IMG_Load("menu.png");
 
     Personaje *personaje=new Personaje(0,0);
 
@@ -165,15 +167,21 @@ int main( int argc, char* args[] )
     enemigos.push_back(new LLama(personaje));
     enemigos.push_back(new Cocodrilo(personaje));
 
+    Uint8 *keystates1 = SDL_GetKeyState( NULL );
+
     //SDL_Surface *meta=IMG_Load("meta.png"); //
 
     //Render the text
- //   up = TTF_RenderText_Solid( font, "Up", textColor );
+   // up = TTF_RenderText_Solid( font, "Up", textColor );
+
    // down = TTF_RenderText_Solid( font, "Down", textColor );
     //left = TTF_RenderText_Solid( font, "Left", textColor );
    // right = TTF_RenderText_Solid( font, "Right", textColor );
+    enter = TTF_RenderText_Solid( font, "Press Enter", textColor );
+    apply_surface( 0, 0, menu, screen );
+    apply_surface( 0, 0, enter, screen );
 
-
+   // if(keystates1[SDLK_RETURN]){
 
     //While the user hasn't quit
     while( quit == false )
@@ -289,8 +297,8 @@ int main( int argc, char* args[] )
 
 
 
-    }
-
+        }
+   // }
     //Clean up
     clean_up();
 
