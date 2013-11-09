@@ -1,7 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
 	<ActiveTarget name="Debug" />
-	<File name="main.cpp" open="1" top="1" tabpos="0">
-		<Cursor position="1779" topLine="280" />
+	<File name="Cocodrilo.cpp" open="1" top="0" tabpos="6">
+		<Cursor position="0" topLine="20" />
+	</File>
+	<File name="Enemigo.cpp" open="1" top="0" tabpos="4">
+		<Cursor position="1177" topLine="44" />
+	</File>
+	<File name="Fantasmita.cpp" open="1" top="0" tabpos="5">
+		<Cursor position="618" topLine="0" />
+	</File>
+	<File name="LLama.cpp" open="1" top="0" tabpos="3">
+		<Cursor position="0" topLine="20" />
+	</File>
+	<File name="Personaje.cpp" open="1" top="0" tabpos="2">
+		<Cursor position="63" topLine="24" />
+	</File>
+	<File name="main.cpp" open="1" top="1" tabpos="1">
+		<Cursor position="3847" topLine="160" />
 	</File>
 </CodeBlocks_layout_file>

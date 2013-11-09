@@ -4,9 +4,9 @@ Bomba::Bomba(Personaje *personaje)
 {
     this->x=200;
     this->y=200;
-    this->sprites.push_back(IMG_Load("personajes/bomba01.png"));
-    this->sprites.push_back(IMG_Load("personajes/bomba02.png"));
-    this->sprites.push_back(IMG_Load("personajes/bomba03.png"));
+  this->sprites.push_back(IMG_Load("Enemies/spike01.png"));
+  this->sprites.push_back(IMG_Load("Enemies/spike02.png"));
+  this->sprites.push_back(IMG_Load("Enemies/spike03.png"));
     this->personaje=personaje;
     this->moviendose=true;
     //ctor
@@ -38,8 +38,8 @@ void Bomba::logica(Personaje *personaje)
             va_para_la_derecha=true;
 
 
-     if(personaje->personaje_x+128>this->x && personaje->personaje_x<this->x+128
-            && personaje->personaje_y+128>this->y && personaje->personaje_y<this->y+128){
+     if(personaje->personaje_x+36>this->x && personaje->personaje_x<this->x+45
+            && personaje->personaje_y+40>this->y && personaje->personaje_y<this->y+38){
 
               Mix_Music *music ;
             Mix_OpenAudio( 22050, MIX_DEFAULT_FORMAT, 2, 4096 );

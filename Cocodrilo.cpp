@@ -6,12 +6,9 @@ Cocodrilo::Cocodrilo(Personaje*personaje)
     this->duracion_animacion=5;
      this->x=200;
     this->y=200;
-     this->sprites.push_back(IMG_Load("Cocodrilo/croc01.png"));
-    this->sprites.push_back(IMG_Load("Cocodrilo/croc02.png"));
-    this->sprites.push_back(IMG_Load("Cocodrilo/croc03.png"));
-    this->sprites.push_back(IMG_Load("Cocodrilo/croc04.png"));
-    this->sprites.push_back(IMG_Load("Cocodrilo/croc05.png"));
-    this->sprites.push_back(IMG_Load("Cocodrilo/croc06.png"));
+    this->sprites.push_back(IMG_Load("Enemies/enem01.png"));
+    this->sprites.push_back(IMG_Load("Enemies/enem02.png"));
+    this->sprites.push_back(IMG_Load("Enemies/enem03.png"));
     this->personaje=personaje;
 }
 
@@ -34,8 +31,8 @@ void Cocodrilo::logica(Personaje *personaje)
 
         va_para_la_derecha=true;
 
-if(personaje->personaje_x+128>this->x && personaje->personaje_x<this->x+128
-            && personaje->personaje_y+128>this->y && personaje->personaje_y<this->y+128){
+if(personaje->personaje_x+36>this->x && personaje->personaje_x<this->x+45
+            && personaje->personaje_y+40>this->y && personaje->personaje_y<this->y+38){
              Mix_Music *music ;
             Mix_OpenAudio( 22050, MIX_DEFAULT_FORMAT, 2, 4096 );
             music = Mix_LoadMUS( "beat.wav" );

@@ -5,7 +5,7 @@ Enemigo::Enemigo()
 {
    va_para_la_derecha=true;
    this->iteracion=0;
-    this->duracion_animacion=10;
+    this->duracion_animacion=15;
     this->cuadro_actual=0;
     this->moviendose=true;
     this->colision=false;

@@ -23,6 +23,7 @@ const int SCREEN_BPP = 32;
 
 //The surfaces
 Mix_Music *music ;
+Mix_Music *soundtrack ;
 SDL_Surface *background = NULL;
 SDL_Surface *enter = NULL;
 //SDL_Surface *up = NULL;
@@ -88,7 +89,7 @@ bool load_files()
     //Load the background image
     Mix_OpenAudio( 22050, MIX_DEFAULT_FORMAT, 2, 4096 );
     //Load the background image
-    background = IMG_Load( "back2.png" );
+    background = IMG_Load( "back.png" );
 
 
     //Open the font
@@ -107,8 +108,14 @@ bool load_files()
     }
 
      music = Mix_LoadMUS( "beat.wav" );
+     soundtrack = Mix_LoadMUS( "beat.wav" );
+
     //If there was a problem loading the music
     if( music == NULL )
+    {
+        return false;
+    }
+    if( soundtrack == NULL )
     {
         return false;
     }
@@ -131,6 +138,7 @@ void clean_up()
 
     //Quit SDL_ttf
     Mix_FreeMusic( music );
+     Mix_FreeMusic( soundtrack );
     TTF_Quit();
 
     //Quit SDL
@@ -141,6 +149,7 @@ int main( int argc, char* args[] )
 {
     //Quit flag
     bool quit = false;
+    bool quit2 = false;
 
     //Initialize
     if( init() == false )
@@ -155,8 +164,9 @@ int main( int argc, char* args[] )
     }
 
     SDL_Surface*meta =IMG_Load("meta1.png");
-    SDL_Surface*gameOver =IMG_Load("game over.png");
-    SDL_Surface*menu =IMG_Load("menu.png");
+    SDL_Surface*gameOver =IMG_Load("GameOver.png");
+    SDL_Surface*win =IMG_Load("win.png");
+    SDL_Surface*menu =IMG_Load("menu002.png");
 
     Personaje *personaje=new Personaje(0,0);
 
@@ -167,7 +177,7 @@ int main( int argc, char* args[] )
     enemigos.push_back(new LLama(personaje));
     enemigos.push_back(new Cocodrilo(personaje));
 
-    Uint8 *keystates1 = SDL_GetKeyState( NULL );
+
 
     //SDL_Surface *meta=IMG_Load("meta.png"); //
 
@@ -177,11 +187,42 @@ int main( int argc, char* args[] )
    // down = TTF_RenderText_Solid( font, "Down", textColor );
     //left = TTF_RenderText_Solid( font, "Left", textColor );
    // right = TTF_RenderText_Solid( font, "Right", textColor );
-    enter = TTF_RenderText_Solid( font, "Press Enter", textColor );
-    apply_surface( 0, 0, menu, screen );
-    apply_surface( 0, 0, enter, screen );
 
-   // if(keystates1[SDLK_RETURN]){
+    enter = TTF_RenderText_Solid( font, "Press Enter", textColor );
+    Uint8 *keystates1 = SDL_GetKeyState( NULL );
+    while(quit2 ==false){
+        while( SDL_PollEvent( &event ) )
+        {
+            //If the user has Xed out the window
+            if( event.type == SDL_QUIT )
+            {
+                //Quit the program
+                quit2= true;
+            }
+        }
+
+
+         if( SDL_Flip( screen ) == -1 )
+        {
+            return 1;
+        }
+
+
+
+
+        apply_surface( 0, 0, menu, screen );
+        apply_surface( 0, 0, enter, screen );
+        if(keystates1[SDLK_RETURN]){
+            quit2=true;
+
+        }
+
+
+
+
+ }
+
+    Mix_PlayMusic( soundtrack, -1 );
 
     //While the user hasn't quit
     while( quit == false )
@@ -198,14 +239,17 @@ int main( int argc, char* args[] )
         }
 
         //Apply the background
+
     apply_surface( 0, 0, background, screen );
+
+
 //    apply_surface(400,300,meta,screen);
 
 
 
         personaje->dibujar(screen);
 
-
+        apply_surface(550,400,meta ,screen);
         for(int i=0;i<enemigos.size();i++)
           enemigos[i]->dibujar(screen);
 
@@ -217,15 +261,15 @@ int main( int argc, char* args[] )
         apply_surface(0,0,gameOver ,screen);
         }
 
-         apply_surface(550,400,meta ,screen);
 
-         if(personaje->personaje_x+128>550 && personaje->personaje_x<600
-            && personaje->personaje_y+128>400 && personaje->personaje_y<450){
+
+         if(personaje->personaje_x+36>550 && personaje->personaje_x<600
+            && personaje->personaje_y+40>400 && personaje->personaje_y<450){
 
             Mix_PlayMusic( music, -1 );
-        #include "SDL/SDL_mixer.h"
 
-             apply_surface(0,0,gameOver ,screen);
+
+             apply_surface(0,0,win ,screen);
 
 
             }

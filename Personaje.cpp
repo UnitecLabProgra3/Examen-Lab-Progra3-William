@@ -10,10 +10,18 @@ Personaje::Personaje(int x,int y)
     this->duracion_animacion=10;
     this->cuadro_actual=0;
     this->moviendose=false;
-    sprites.push_back(IMG_Load("personajes/run01.png"));
-    sprites.push_back(IMG_Load("personajes/run02.png"));
-    sprites.push_back(IMG_Load("personajes/run03.png"));
-    sprites.push_back(IMG_Load("personajes/run04.png"));
+
+    //w=36 * h=40
+    sprites.push_back(IMG_Load("Sonic/sonic00.png"));
+    sprites.push_back(IMG_Load("Sonic/sonic01.png"));
+    sprites.push_back(IMG_Load("Sonic/sonic02.png"));
+    sprites.push_back(IMG_Load("Sonic/sonic03.png"));
+    sprites.push_back(IMG_Load("Sonic/sonic04.png"));
+    sprites.push_back(IMG_Load("Sonic/sonic05.png"));
+    sprites.push_back(IMG_Load("Sonic/sonic06.png"));
+        //this->sprites.push_back(IMG_Load("image2.png"));
+
+
     //ctor
 }
 

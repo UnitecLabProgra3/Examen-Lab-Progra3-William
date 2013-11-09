@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1383701096 source:/home/william/Documents/Code Blocks Projects/Examen Lab Progra3 William/Bomba.cpp
+1383950810 source:/home/william/Documents/Code Blocks Projects/Examen Lab Progra3 William/Bomba.cpp
 	"Bomba.h"
 	"SDL/SDL_mixer.h"
 
@@ -20,34 +20,35 @@
 	"SDL/SDL_ttf.h"
 	<vector>
 
-1383701039 source:/home/william/Documents/Code Blocks Projects/Examen Lab Progra3 William/Cocodrilo.cpp
+1383950810 source:/home/william/Documents/Code Blocks Projects/Examen Lab Progra3 William/Cocodrilo.cpp
 	"Cocodrilo.h"
 	"SDL/SDL_mixer.h"
 
 1383686935 /home/william/Documents/Code Blocks Projects/Examen Lab Progra3 William/Cocodrilo.h
 	"Enemigo.h"
 
-1383701297 source:/home/william/Documents/Code Blocks Projects/Examen Lab Progra3 William/Enemigo.cpp
+1383951907 source:/home/william/Documents/Code Blocks Projects/Examen Lab Progra3 William/Enemigo.cpp
 	"Enemigo.h"
 	<iostream>
 
-1383700249 source:/home/william/Documents/Code Blocks Projects/Examen Lab Progra3 William/Fantasmita.cpp
+1383954584 source:/home/william/Documents/Code Blocks Projects/Examen Lab Progra3 William/Fantasmita.cpp
 	"Fantasmita.h"
+	"SDL/SDL_mixer.h"
 
 1383687094 /home/william/Documents/Code Blocks Projects/Examen Lab Progra3 William/Fantasmita.h
 	"Enemigo.h"
 
-1383701096 source:/home/william/Documents/Code Blocks Projects/Examen Lab Progra3 William/LLama.cpp
+1383950318 source:/home/william/Documents/Code Blocks Projects/Examen Lab Progra3 William/LLama.cpp
 	"LLama.h"
 	"SDL/SDL_mixer.h"
 
 1383686935 /home/william/Documents/Code Blocks Projects/Examen Lab Progra3 William/LLama.h
 	"Enemigo.h"
 
-1383674665 source:/home/william/Documents/Code Blocks Projects/Examen Lab Progra3 William/Personaje.cpp
+1383954672 source:/home/william/Documents/Code Blocks Projects/Examen Lab Progra3 William/Personaje.cpp
 	"Personaje.h"
 
-1383784099 source:/home/william/Documents/Code Blocks Projects/Examen Lab Progra3 William/main.cpp
+1383956167 source:/home/william/Documents/Code Blocks Projects/Examen Lab Progra3 William/main.cpp
 	"SDL/SDL.h"
 	"SDL/SDL_image.h"
 	"SDL/SDL_ttf.h"
@@ -60,6 +61,5 @@
 	"Bomba.h"
 	"Cocodrilo.h"
 	"LLama.h"
-	"SDL/SDL_mixer.h"
 	"SDL/SDL_mixer.h"
 
