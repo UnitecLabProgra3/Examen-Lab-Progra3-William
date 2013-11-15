@@ -15,6 +15,11 @@ and may not be redistributed without written permission.*/
 #include "Cocodrilo.h"
 #include "LLama.h"
 #include "SDL/SDL_mixer.h"
+#include "Timer.h"
+#include <sstream>
+
+//The frames per second
+const int FRAMES_PER_SECOND = 60;
 
 //Screen attributes
 const int SCREEN_WIDTH = 640;
@@ -23,6 +28,7 @@ const int SCREEN_BPP = 32;
 
 //The surfaces
 Mix_Music *music ;
+Mix_Music *title ;
 Mix_Music *soundtrack ;
 SDL_Surface *background = NULL;
 SDL_Surface *enter = NULL;
@@ -93,7 +99,7 @@ bool load_files()
 
 
     //Open the font
-    font = TTF_OpenFont( "lazy.ttf", 72 );
+    font = TTF_OpenFont( "Orange Juice.ttf", 72 );
 
     //If there was a problem in loading the background
     if( background == NULL )
@@ -108,7 +114,8 @@ bool load_files()
     }
 
      music = Mix_LoadMUS( "beat.wav" );
-     soundtrack = Mix_LoadMUS( "beat.wav" );
+     title= Mix_LoadMUS( "Title.ogg" );
+     soundtrack = Mix_LoadMUS( "04 Palmtree Panic.ogg" );
 
     //If there was a problem loading the music
     if( music == NULL )
@@ -116,6 +123,11 @@ bool load_files()
         return false;
     }
     if( soundtrack == NULL )
+    {
+        return false;
+    }
+
+    if( title == NULL )
     {
         return false;
     }
@@ -128,6 +140,7 @@ void clean_up()
 {
     //Free the surfaces
     SDL_FreeSurface( background );
+
   //  SDL_FreeSurface( up );
     //SDL_FreeSurface( down );
     //SDL_FreeSurface( left );
@@ -139,6 +152,7 @@ void clean_up()
     //Quit SDL_ttf
     Mix_FreeMusic( music );
      Mix_FreeMusic( soundtrack );
+     Mix_FreeMusic( title );
     TTF_Quit();
 
     //Quit SDL
@@ -147,9 +161,20 @@ void clean_up()
 
 int main( int argc, char* args[] )
 {
+    //Keep track of the current frame
+    int frame = 0;
+
+
+    //The frame rate regulator
+    Timer fps;
+
+    //Timer used to update the caption
+    Timer update;
+
     //Quit flag
     bool quit = false;
     bool quit2 = false;
+
 
     //Initialize
     if( init() == false )
@@ -190,7 +215,15 @@ int main( int argc, char* args[] )
 
     enter = TTF_RenderText_Solid( font, "Press Enter", textColor );
     Uint8 *keystates1 = SDL_GetKeyState( NULL );
+    Mix_PlayMusic( title, -1 );
+
+
+
+
     while(quit2 ==false){
+
+
+
         while( SDL_PollEvent( &event ) )
         {
             //If the user has Xed out the window
@@ -211,7 +244,7 @@ int main( int argc, char* args[] )
 
 
         apply_surface( 0, 0, menu, screen );
-        apply_surface( 0, 0, enter, screen );
+        apply_surface( 150, 370, enter, screen );
         if(keystates1[SDLK_RETURN]){
             quit2=true;
 
@@ -222,11 +255,26 @@ int main( int argc, char* args[] )
 
  }
 
+
     Mix_PlayMusic( soundtrack, -1 );
+
+
+
+    //Start the update timer
+        update.start();
+
+    //Start the frame timer
+        fps.start();
+
+
 
     //While the user hasn't quit
     while( quit == false )
     {
+
+
+
+
         //While there's events to handle
         while( SDL_PollEvent( &event ) )
         {
@@ -256,6 +304,9 @@ int main( int argc, char* args[] )
         for(int i=0;i<enemigos.size();i++)
           enemigos[i]->logica(personaje);
 
+        for(int i=0;i<enemigos.size();i++)
+          enemigos[i]->patron_Mov();
+
         for(int i=0;i<enemigos.size();i++){
         if(enemigos[i]->colision)
         apply_surface(0,0,gameOver ,screen);
@@ -273,9 +324,6 @@ int main( int argc, char* args[] )
 
 
             }
-
-
-
 
 
 
@@ -316,6 +364,11 @@ int main( int argc, char* args[] )
             personaje->moviendose=true;
         }
 
+        if( keystates[ SDLK_SPACE ] )
+        {
+
+        }
+
         //Update the screen
         if( SDL_Flip( screen ) == -1 )
         {
@@ -323,28 +376,35 @@ int main( int argc, char* args[] )
         }
 
 
+         frame++;
 
+        //If we want to cap the frame rate
+        if(fps.get_ticks() < (1000 / FRAMES_PER_SECOND ) )
+        {
+            //Sleep the remaining frame time
+            SDL_Delay( ( 1000 / FRAMES_PER_SECOND ) - fps.get_ticks() );
+        }
 
+        //If a second has passed since the caption was last updated
+        if( update.get_ticks() > 1000 )
+        {
+            //The frame rate as a string
+            std::stringstream caption;
 
+            //Calculate the frames per second and create the string
+            caption << "Average Frames Per Second: " << frame / ( fps.get_ticks() / 1000.f );
 
-       //Hacer que termine el juego cuando el personaje llegue a una posición, la imagen mete
+            //Reset the caption
+            SDL_WM_SetCaption( caption.str().c_str(), NULL );
 
-   /*    for(int i=0;i<50;i++)
-       {
-           for(int j=0;j<50;j++)
-           {
-               if(personaje.x==400+i && personaje.y-j==00)
-                exit(0);
-           }
-       }*/ // esto es haciendolo con ciclos
-
-
+            //Restart the update timer
+            update.start();
+        }
 
 
         }
-   // }
-    //Clean up
-    clean_up();
+
+        clean_up();
 
     return 0;
 }

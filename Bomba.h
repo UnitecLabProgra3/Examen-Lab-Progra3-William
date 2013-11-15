@@ -7,7 +7,8 @@ class Bomba : public Enemigo
 {
     public:
         Bomba(Personaje *personaje);
-        void logica(Personaje *personaje);
+
+        void patron_Mov();
         virtual ~Bomba();
     protected:
     private:

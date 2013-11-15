@@ -6,7 +6,8 @@ class Fantasmita  : public Enemigo
 {
     public:
         Fantasmita(Personaje * personaje);
-        void logica(Personaje*personaje);
+
+        void patron_Mov();
         virtual ~Fantasmita();
     protected:
     private:

@@ -8,7 +8,8 @@ class LLama : public Enemigo
 {
     public:
         LLama(Personaje *personaje);
-        void logica(Personaje *personaje);
+
+        void patron_Mov();
         virtual ~LLama();
     protected:
     private:

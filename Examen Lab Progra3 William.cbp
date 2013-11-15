@@ -44,6 +44,8 @@
 		<Unit filename="LLama.h" />
 		<Unit filename="Personaje.cpp" />
 		<Unit filename="Personaje.h" />
+		<Unit filename="Timer.cpp" />
+		<Unit filename="Timer.h" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<envvars />

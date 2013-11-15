@@ -6,7 +6,8 @@ class Cocodrilo : public Enemigo
 {
     public:
         Cocodrilo(Personaje*personaje);
-        void logica(Personaje *personaje);
+
+        void patron_Mov();
         virtual ~Cocodrilo();
     protected:
     private:

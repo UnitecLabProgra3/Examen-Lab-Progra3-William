@@ -1,6 +1,6 @@
 #include "Enemigo.h"
 #include <iostream>
-
+#include "SDL/SDL_mixer.h"
 Enemigo::Enemigo()
 {
    va_para_la_derecha=true;
@@ -10,6 +10,7 @@ Enemigo::Enemigo()
     this->moviendose=true;
     this->colision=false;
 
+
     //ctor
 }
 
@@ -17,6 +18,7 @@ Enemigo::~Enemigo()
 {
     //dtor
 }
+
 
 
  void Enemigo :: dibujar(SDL_Surface *screen)
@@ -42,14 +44,29 @@ Enemigo::~Enemigo()
  }
 
 
+ void Enemigo::patron_Mov(){
+
+        this->x++;
+
+
+ }
+
+
 void Enemigo::logica(Personaje *personaje)
 {
 
 
 
-     if(personaje->personaje_x+128>this->x && personaje->personaje_x<this->x+128
-            && personaje->personaje_y+128>this->y && personaje->personaje_y<this->y+128)
-                exit(0);
+        if(personaje->personaje_x+36>this->x && personaje->personaje_x<this->x+45
+            && personaje->personaje_y+40>this->y && personaje->personaje_y<this->y+38)
+                {
+            Mix_Music *music ;
+            Mix_OpenAudio( 22050, MIX_DEFAULT_FORMAT, 2, 4096 );
+            music = Mix_LoadMUS( "beat.wav" );
+            Mix_PlayMusic( music, -1 );
+            this->colision=true;
+
+                }
 
 
 

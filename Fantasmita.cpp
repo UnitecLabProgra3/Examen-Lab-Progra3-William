@@ -22,9 +22,10 @@ Fantasmita::~Fantasmita()
     //dtor
 }
 
-void Fantasmita::logica(Personaje *personaje)
-{
-      if(va_para_la_derecha)
+
+
+void Fantasmita ::patron_Mov(){
+     if(va_para_la_derecha)
         this->x++;
     else
         this->x--;
@@ -35,18 +36,6 @@ void Fantasmita::logica(Personaje *personaje)
     if(x<50)
 
         va_para_la_derecha=true;
-
-
-if(personaje->personaje_x+36>this->x && personaje->personaje_x<this->x+45
-            && personaje->personaje_y+40>this->y && personaje->personaje_y<this->y+38)
-                {
-            Mix_Music *music ;
-            Mix_OpenAudio( 22050, MIX_DEFAULT_FORMAT, 2, 4096 );
-            music = Mix_LoadMUS( "beat.wav" );
-            Mix_PlayMusic( music, -1 );
-            this->colision=true;
-
-                }
 
 
 }

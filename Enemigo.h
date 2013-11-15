@@ -22,6 +22,7 @@ class Enemigo
         SDL_Surface *screen;
         virtual void dibujar(SDL_Surface *screen);
         virtual void logica(Personaje *personaje);
+        virtual void patron_Mov();
         virtual void apply_surface(int x, int y, SDL_Surface* source, SDL_Surface* destination, SDL_Rect* clip = NULL );
 
         Enemigo();
