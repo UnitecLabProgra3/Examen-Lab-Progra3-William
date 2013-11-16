@@ -46,10 +46,10 @@
 1384217844 /home/william/Documents/Code Blocks Projects/Examen Lab Progra3 William/LLama.h
 	"Enemigo.h"
 
-1383958286 source:/home/william/Documents/Code Blocks Projects/Examen Lab Progra3 William/Personaje.cpp
+1384565287 source:/home/william/Documents/Code Blocks Projects/Examen Lab Progra3 William/Personaje.cpp
 	"Personaje.h"
 
-1384554034 source:/home/william/Documents/Code Blocks Projects/Examen Lab Progra3 William/main.cpp
+1384565287 source:/home/william/Documents/Code Blocks Projects/Examen Lab Progra3 William/main.cpp
 	"SDL/SDL.h"
 	"SDL/SDL_image.h"
 	"SDL/SDL_ttf.h"

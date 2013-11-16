@@ -4,9 +4,9 @@ Bomba::Bomba(Personaje *personaje)
 {
     this->x=200;
     this->y=200;
-  this->sprites.push_back(IMG_Load("Enemies/spike01.png"));
-  this->sprites.push_back(IMG_Load("Enemies/spike02.png"));
-  this->sprites.push_back(IMG_Load("Enemies/spike03.png"));
+  this->sprites.push_back(IMG_Load("characters/Enemies/spike/spike01.png"));
+  this->sprites.push_back(IMG_Load("characters/Enemies/spike/spike02.png"));
+  this->sprites.push_back(IMG_Load("characters/Enemies/spike/spike03.png"));
     this->personaje=personaje;
     this->moviendose=true;
     //ctor

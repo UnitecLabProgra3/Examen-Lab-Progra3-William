@@ -95,11 +95,11 @@ bool load_files()
     //Load the background image
     Mix_OpenAudio( 22050, MIX_DEFAULT_FORMAT, 2, 4096 );
     //Load the background image
-    background = IMG_Load( "back.png" );
+    background = IMG_Load( "backgrounds/back.png" );
 
 
     //Open the font
-    font = TTF_OpenFont( "Orange Juice.ttf", 72 );
+    font = TTF_OpenFont( "fonts/Orange Juice.ttf", 72 );
 
     //If there was a problem in loading the background
     if( background == NULL )
@@ -113,9 +113,9 @@ bool load_files()
         return false;
     }
 
-     music = Mix_LoadMUS( "beat.wav" );
-     title= Mix_LoadMUS( "Title.ogg" );
-     soundtrack = Mix_LoadMUS( "04 Palmtree Panic.ogg" );
+     music = Mix_LoadMUS( "sounds/beat.wav" );
+     title= Mix_LoadMUS( "sounds/Title.ogg" );
+     soundtrack = Mix_LoadMUS( "sounds/04 Palmtree Panic.ogg" );
 
     //If there was a problem loading the music
     if( music == NULL )
@@ -188,10 +188,10 @@ int main( int argc, char* args[] )
         return 1;
     }
 
-    SDL_Surface*meta =IMG_Load("meta1.png");
-    SDL_Surface*gameOver =IMG_Load("GameOver.png");
-    SDL_Surface*win =IMG_Load("win.png");
-    SDL_Surface*menu =IMG_Load("menu002.png");
+    SDL_Surface*meta =IMG_Load("backgrounds/meta1.png");
+    SDL_Surface*gameOver =IMG_Load("backgrounds/GameOver.png");
+    SDL_Surface*win =IMG_Load("backgrounds/win.png");
+    SDL_Surface*menu =IMG_Load("backgrounds/menu002.png");
 
     Personaje *personaje=new Personaje(0,0);
 

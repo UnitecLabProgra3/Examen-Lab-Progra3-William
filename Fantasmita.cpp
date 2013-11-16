@@ -6,9 +6,9 @@ Fantasmita::Fantasmita(Personaje *personaje)
     this->y=100;
     //w =45 * h=38
 
-   this->sprites.push_back(IMG_Load("Enemies/enemy01.png"));
-     this->sprites.push_back(IMG_Load("Enemies/enemy02.png"));
-    this->sprites.push_back(IMG_Load("Enemies/enemy03.png"));
+   this->sprites.push_back(IMG_Load("characters/Enemies/enemy/enemy01.png"));
+     this->sprites.push_back(IMG_Load("characters/Enemies/enemy/enemy02.png"));
+    this->sprites.push_back(IMG_Load("characters/Enemies/enemy/enemy03.png"));
 
 //this->sprites.push_back(IMG_Load("image1.png"));
 

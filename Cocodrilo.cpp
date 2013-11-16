@@ -6,9 +6,9 @@ Cocodrilo::Cocodrilo(Personaje*personaje)
     this->duracion_animacion=5;
      this->x=200;
     this->y=200;
-    this->sprites.push_back(IMG_Load("Enemies/enem01.png"));
-    this->sprites.push_back(IMG_Load("Enemies/enem02.png"));
-    this->sprites.push_back(IMG_Load("Enemies/enem03.png"));
+    this->sprites.push_back(IMG_Load("characters/Enemies/enem/enem01.png"));
+    this->sprites.push_back(IMG_Load("characters/Enemies/enem/enem02.png"));
+    this->sprites.push_back(IMG_Load("characters/Enemies/enem/enem03.png"));
     this->personaje=personaje;
 }
 
